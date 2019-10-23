@@ -21,8 +21,7 @@ The graph presents the means of global temperature.  The data has been recording
 *The temperature data is based on the means which is `14°C` so I need to add 14 to get the real temperature degree.* 
 7. Return `{ xYear, yTemp }` as an object. *So I can move xYear and yTemp from global variables into the getData function which makes the code looks cleaner and avoid any future problems*
 
-***Draw the Line Chart with Chart.js***
-<br>
+***Draw Line Chart with Chart.js***
 8. Install Chart.js CDN in script tag in head section.
 9. Create `<canvas id="chart"></canvas>`. 
 10. Copy the sample code and paste above `getData() function`.
