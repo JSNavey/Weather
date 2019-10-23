@@ -7,20 +7,25 @@
   <title>Global Temp</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
 </head>
+
 <body>
   <canvas id="chart"></canvas>
   <script>
+
+    const xYear = [];
+    const yTemp = [];
+
     const ctx = document.getElementById('chart').getContext('2d');
     const myChart = new Chart(ctx, {
       type: 'line',
       data: {
-          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+          labels: xYear,
           datasets: [{
               label: 'Global Average Temperature',
-              data: [12, 19, 3, 5, 2, 3],
+              data: yTemp,
               fill: false,
               backgroundColor: 'rgba(0, 0, 0, 0.1)',
-              borderColor: 'rgba(0, 0, 0, 0.1)',
+              borderColor: 'rgba(0, 0, 0, 0.3)',
               lineTension: 0.4
           }]
       },
@@ -50,7 +55,9 @@
         const columm = row.split(',');
         const year = columm[0];
         const temp = columm[1];
-        console.log(year, temp);
+        // console.log(year, temp);
+        xYear.push(year);
+        yTemp.push(parseFloat(temp) + 14);
       })
     }
   </script>
