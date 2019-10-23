@@ -14,9 +14,9 @@
     getData();
 
     async function getData() {
-      const response = await fetch('./data/test.csv');
+      const response = await fetch('./data/data.csv');
       const data = await response.text();
-      console.log(data);
+      // console.log(data);
 
       // Reformating the raw data, need only year and mean temp (index 0 and 1 in the data set).
       // Rows - seperate by line break (\n) and get rid of the head title
