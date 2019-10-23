@@ -15,33 +15,34 @@
     const xYear = [];
     const yTemp = [];
 
-    const ctx = document.getElementById('chart').getContext('2d');
-    const myChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-          labels: xYear,
-          datasets: [{
-              label: 'Global Average Temperature',
-              data: yTemp,
-              fill: false,
-              backgroundColor: 'rgba(0, 0, 0, 0.1)',
-              borderColor: 'rgba(0, 0, 0, 0.3)',
-              lineTension: 0.4
-          }]
-      },
-      options: {
-          scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero: true
-                  }
-              }]
-          }
-      }
-    });
+    chart();
 
-
-    getData();
+    async function chart() {
+      await getData();
+      const ctx = document.getElementById('chart').getContext('2d');
+      const myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: xYear,
+            datasets: [{
+                label: 'Global Average Temperature in C°',
+                data: yTemp,
+                fill: false,
+                backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                borderColor: 'rgba(0, 0, 0, 0.3)'
+            }]
+        },
+        // options: {
+        //     scales: {
+        //         yAxes: [{
+        //             ticks: {
+        //                 beginAtZero: true
+        //             }
+        //         }]
+        //     }
+        // }
+      });
+    }
 
     async function getData() {
       const response = await fetch('./data/data.csv');
