@@ -9,15 +9,15 @@
 </head>
 
 <body>
-  <canvas id="chart" 
-    style=" height: 400px; 
-            width: 800px;
-            background-color: black">
-  </canvas>
+    <canvas id="chart" 
+      style=" height: 400px; 
+              width: 800px;
+              background-color: rgba(0,0,0,0.9)"
+              >
+    </canvas>
+
   <script>
-
     chart();
-
     async function chart() {
       const tempData = await getData();
       const ctx = document.getElementById('chart').getContext('2d');
@@ -48,7 +48,6 @@
       });
     }
 
-    
     async function getData() {
       const xYear = [];
       const yTemp = [];
@@ -67,7 +66,7 @@
         yTemp.push(parseFloat(temp) + 14);
       });
       return { xYear, yTemp };
-    }
+    };
   </script>
 </body>
 </html>
