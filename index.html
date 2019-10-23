@@ -12,24 +12,23 @@
   <canvas id="chart"></canvas>
   <script>
 
-    const xYear = [];
-    const yTemp = [];
+    
 
     chart();
 
     async function chart() {
-      await getData();
+      const tempData = await getData();
       const ctx = document.getElementById('chart').getContext('2d');
       const myChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: xYear,
+            labels: tempData.xYear,
             datasets: [{
                 label: 'Global Average Temperature in C°',
-                data: yTemp,
+                data: tempData.yTemp,
                 fill: false,
-                backgroundColor: 'rgba(0, 0, 0, 0.1)',
-                borderColor: 'rgba(0, 0, 0, 0.3)'
+                backgroundColor: 'rgba(244, 18, 65, 0.5)',
+                borderColor: 'rgba(247, 15, 85, 0.3)'
             }]
         },
         // options: {
@@ -44,10 +43,12 @@
       });
     }
 
+    
     async function getData() {
+      const xYear = [];
+      const yTemp = [];
       const response = await fetch('./data/data.csv');
       const data = await response.text();
-      // console.log(data);
 
       // Reformating the raw data, need only year and mean temp (index 0 and 1 in the data set).
       // Rows - seperate by line break (\n) and get rid of the head title
@@ -56,10 +57,11 @@
         const columm = row.split(',');
         const year = columm[0];
         const temp = columm[1];
-        // console.log(year, temp);
+        
         xYear.push(year);
         yTemp.push(parseFloat(temp) + 14);
-      })
+      });
+      return { xYear, yTemp };
     }
   </script>
 </body>
