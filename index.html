@@ -10,6 +10,14 @@
   <script>
     // Data from: https://data.giss.nasa.gov/gistemp/
     // 
+
+    getData();
+
+    async function getData() {
+      const response = await fetch('./data/test.csv');
+      const data = await response.text();
+      console.log(data);
+    }
   </script>
 </body>
 </html>
