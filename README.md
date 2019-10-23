@@ -1,7 +1,7 @@
 # Global Average Temperature 
 https://temperature-statistic.netlify.com
 
-The graph presents the means of global temperature.  The data has been recording since 1880 until 2018. 
+The graph presents the means of global temperature.  The data has been recording by NASA since 1880 until 2018. 
 
 ## Ojectives of this repository ##
 - To solidify the knowledge of how to get the data by using fetch() and asynchronous events handler with Promise (async / await) which it makes the code shorter and more readable.
@@ -15,13 +15,14 @@ The graph presents the means of global temperature.  The data has been recording
 3. Create `getData()` to fetch the data by using `fetch()` and `async / await` instead of using `.then()`. Return the rdata in text form `response.text()`.
 4. Parse the dataset to be row and columm with `split()` and `slice()`.
 5. And select the data that we need which is only `year and temperature: columm[0], columm[1]`.
-6. Create empty array variables(`xYear = [] / yTemp = []`). Push `year` and `temperature` values into them.
+6. Create empty array variables(`xYear = [] / yTemp = []`). Push `year` and `temperature` values into them.<br>
 *Note:*
 *Number in CSV file is String so we need to convert the number into Number by using `parseInt() or parseFloat()`.*
 *The temperature data is based on the means which is `14°C` so I need to add 14 to get the real temperature degree.* 
 7. Return `{ xYear, yTemp }` as an object. *So I can move xYear and yTemp from global variables into the getData function which makes the code looks cleaner and avoid any future problems*
 
 ***Draw the Line Chart with Chart.js***
+<br>
 8. Install Chart.js CDN in script tag in head section.
 9. Create `<canvas id="chart"></canvas>`. 
 10. Copy the sample code and paste above `getData() function`.
@@ -41,6 +42,6 @@ The graph presents the means of global temperature.  The data has been recording
 - Chart.js
 - Data from: https://data.giss.nasa.gov/gistemp and Temperature Means from https://earthobservatory.nasa.gov/world-of-change/DecadalTemp
 
-###### Tip #####
+## Tip ##
 To add temperature degree symbol on Mac `shift option 8`. 
 
